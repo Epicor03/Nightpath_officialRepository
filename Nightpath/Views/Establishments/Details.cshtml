@@ -1,0 +1,66 @@
+﻿@model Nightpath.Models.Establishment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Establishment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estab_Owner.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estab_Owner.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Region.RegionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Region.RegionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIF)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

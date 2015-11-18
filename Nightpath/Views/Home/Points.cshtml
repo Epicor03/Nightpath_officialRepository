@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Points";
+}
+<h2>Profile Name</h2>
+<div class="container">
+    <h4>Pontos Disponíveis</h4><label for="element_id"></label>
+    <div class="row pushtoright">
+        <div class="col-lg-6">
+            <dl>
+                <dt>Método de pagamento:</dt>
+                <dd>-SMS</dd>
+                <dd>-Transferência Bancária</dd>
+            </dl>
+        </div>
+        <div class="col-lg-6">
+            <dl>
+                <dt>Pontos:</dt>
+                <dd>-5€=10pontos</dd>
+                <dd>-20€=45pontos</dd>
+                <dd>-50€=120pontos</dd>
+                <dd>-100€=500pontos</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row center-btn">
+        <div class="container col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">SMS</div>
+                <div class="panel-body">
+                    <div class="spacing-form row">SMS 2€ = 5 Pontos</div>
+                    <div class="spacing-form row">
+                        Nº de Telemóvel:
+                        <input type="tel" name="sms">
+                        <input type="button" onclick="alert('Mensagem Enviada')" value="Enviar">
+                    </div>
+                    <div class="spacing-form row">
+                        Insira Código:
+                        <input type="text" name="smscode">
+                        <input type="button" value="Submeter">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" container col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Transferência Bancária</div>
+                <div class="panel-body">
+                    <div class="spacing-form row">
+                        Escolha o Montante:
+                        <select>
+                            <option value="5">5€</option>
+                            <option value="10">10€</option>
+                            <option value="20">20€</option>
+                            <option value="50">50€</option>
+                            <option value="100">100€</option>
+                            <option value="200">200€</option>
+                            <option value="300">300€</option>
+                            <option value="400">400€</option>
+                            <option value="500">500€</option>
+                        </select>
+                    </div>
+                    <div class="spacing-form row">
+                        <input type="button" value="Comprar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
