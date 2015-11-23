@@ -40,7 +40,8 @@ namespace Nightpath.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name");
+            // get userID 
+            ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name"); // usar o userID no select para filtrar 
             return View();
         }
 

@@ -307,7 +307,6 @@
     <Content Include="Views\Points\Details.cshtml" />
     <Content Include="Views\Points\Edit.cshtml" />
     <Content Include="Views\Points\Index.cshtml" />
-    <Content Include="Views\Event\create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511112242518_initial.resx">
