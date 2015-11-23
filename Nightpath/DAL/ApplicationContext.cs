@@ -31,10 +31,13 @@ namespace Nightpath.DAL
         public DbSet<Estab_Owner> Estab_Owners { get; set; }
 
         public DbSet<Client> Clients { get; set; }
+        public DbSet<File> Files { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        
     }
 
 

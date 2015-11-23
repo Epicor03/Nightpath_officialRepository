@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201511112242518_initial.Designer.cs">
       <DependentUpon>201511112242518_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511232149394_Files.cs" />
+    <Compile Include="Migrations\201511232149394_Files.Designer.cs">
+      <DependentUpon>201511232149394_Files.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -186,6 +190,8 @@
     <Compile Include="Models\Establishment.cs" />
     <Compile Include="Models\Estab_Owner.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Points.cs" />
     <Compile Include="Models\Region.cs" />
@@ -301,10 +307,14 @@
     <Content Include="Views\Points\Details.cshtml" />
     <Content Include="Views\Points\Edit.cshtml" />
     <Content Include="Views\Points\Index.cshtml" />
+    <Content Include="Views\Event\create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511112242518_initial.resx">
       <DependentUpon>201511112242518_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511232149394_Files.resx">
+      <DependentUpon>201511232149394_Files.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
