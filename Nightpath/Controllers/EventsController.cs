@@ -17,7 +17,7 @@ namespace Nightpath.Controllers
 
         // GET: Events
         public ActionResult Index()
-        {
+        {   
             var events = db.Events.Include(a => a.Establishment);
             return View(events.ToList());
         }
@@ -40,7 +40,8 @@ namespace Nightpath.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name");
+            // get userID 
+            ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name"); // usar o userID no select para filtrar 
             return View();
         }
 
@@ -49,17 +50,17 @@ namespace Nightpath.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Description,Capacity,EstablishmentID")] Event @event)
+        public ActionResult Create([Bind(Include = "ID,Title,Description,Capacity,EstablishmentID")] Event _event)
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(@event);
+                db.Events.Add(_event);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name", @event.EstablishmentID);
-            return View(@event);
+            ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name", _event.EstablishmentID);
+            return View(_event);
         }
 
         // GET: Events/Edit/5

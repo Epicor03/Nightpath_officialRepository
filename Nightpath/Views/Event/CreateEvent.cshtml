@@ -2,11 +2,15 @@
     ViewBag.Title = "CreateEvent";
 }
 
-
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
 <div class="jumbotron">
     <div class="row">
-        <div class="col-lg-3">
-            <button type="button">Adicionar foto</button>
+        <div class="form-group">
+            @Html.Label("Avatar", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="Avatar" name="upload" />
+            </div>
         </div>
         <div class="col-lg-9">
             <div class="row">
@@ -34,10 +38,9 @@
                 </div>
             </div>
         </div>
-
-
     </div>
     <div class="row right-btn">
         <button type="button">Criar</button>
     </div>
 </div>
+}
