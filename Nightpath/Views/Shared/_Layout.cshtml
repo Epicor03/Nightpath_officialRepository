@@ -9,18 +9,28 @@
 
 </head>
 <body>
-    <div>
-        <img class="img-responsive" src="http://www.flamedrop.com/Games/PlayStation%20WEB/Graphix/PS%20Logo%20Small%20web.jpg">
-        </div>
     <div class="navbar navbar-inverse">
-        <div class="container">          
-            <div class="navbar-collapse collapse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img class="img-responsive logo" src="/Content/images/logo_nightpath.jpg"></a>
+            </div>          
+            <div class="navbar-collapse collapse navbar-bottom-btn">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Catalog","Catalog", "")</li>
-                    <li>@Html.ActionLink("Profile", "Profile", "Account")</li>
-                    <li>@Html.ActionLink("Points", "Points", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li><a href="~/Home/Index">
+                    <input type="button" class="shadow-button button-navbar" value="Home">
+                    </a></li>
+                    <li><a href="~/Home/Catalog">
+                        <input type="button" class="shadow-button button-navbar" value="Catalog">
+                    </a></li>
+                    <li><a href="~/Account/Profile">
+                        <input type="button" class="shadow-button button-navbar" value="Profile">
+                    </a></li>
+                    <li><a href="~/Home/Points">
+                        <input type="button" class="shadow-button button-navbar" value="Points">
+                    </a></li>
+                    <li><a href="~/Home/About">
+                        <input type="button" class="shadow-button button-navbar" value="About">
+                    </a></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
