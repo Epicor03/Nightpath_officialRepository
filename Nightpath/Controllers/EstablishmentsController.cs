@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Nightpath.DAL;
 using Nightpath.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Nightpath.Controllers
 {
@@ -18,7 +19,7 @@ namespace Nightpath.Controllers
         // GET: Establishments
         public ActionResult Index()
         {
-            var establishments = db.Establishments.Include(e => e.Estab_Owner).Include(e => e.Region);
+            var establishments = db.Establishments.Include(e => e.Region);
             return View(establishments.ToList());
         }
 
@@ -40,7 +41,6 @@ namespace Nightpath.Controllers
         // GET: Establishments/Create
         public ActionResult Create()
         {
-            ViewBag.Estab_OwnerID = new SelectList(db.Estab_Owners, "ID", "ID");
             ViewBag.RegionID = new SelectList(db.Regions, "ID", "RegionName");
             return View();
         }
@@ -50,16 +50,19 @@ namespace Nightpath.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Location,Schedule,NIF,Estab_OwnerID,RegionID")] Establishment establishment)
+        public ActionResult Create([Bind(Include = "ID,Name,Location,Schedule,NIF,ApplicationUserID,RegionID")] Establishment establishment)
         {
             if (ModelState.IsValid)
             {
+                //GET ID
+                string currentUserID = User.Identity.GetUserId();
+                //Search in db for username with this id
+                ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserID);
                 db.Establishments.Add(establishment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Estab_OwnerID = new SelectList(db.Estab_Owners, "ID", "ID", establishment.Estab_OwnerID);
             ViewBag.RegionID = new SelectList(db.Regions, "ID", "RegionName", establishment.RegionID);
             return View(establishment);
         }
@@ -76,7 +79,6 @@ namespace Nightpath.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Estab_OwnerID = new SelectList(db.Estab_Owners, "ID", "ID", establishment.Estab_OwnerID);
             ViewBag.RegionID = new SelectList(db.Regions, "ID", "RegionName", establishment.RegionID);
             return View(establishment);
         }
@@ -86,7 +88,7 @@ namespace Nightpath.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Location,Schedule,NIF,Estab_OwnerID,RegionID")] Establishment establishment)
+        public ActionResult Edit([Bind(Include = "ID,Name,Location,Schedule,NIF,ApplicationUserID,RegionID")] Establishment establishment)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +96,6 @@ namespace Nightpath.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Estab_OwnerID = new SelectList(db.Estab_Owners, "ID", "ID", establishment.Estab_OwnerID);
             ViewBag.RegionID = new SelectList(db.Regions, "ID", "RegionName", establishment.RegionID);
             return View(establishment);
         }

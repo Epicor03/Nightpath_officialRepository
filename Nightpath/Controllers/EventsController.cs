@@ -18,7 +18,7 @@ namespace Nightpath.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            var events = db.Events.Include(a => a.Establishment);
+            var events = db.Events.Include(a=> a.Establishment);
             return View(events.ToList());
         }
 
@@ -29,12 +29,12 @@ namespace Nightpath.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event _event = db.Events.Find(id);
-            if (_event == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(_event);
+            return View(@event);
         }
 
         // GET: Events/Create
@@ -69,13 +69,13 @@ namespace Nightpath.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event _event = db.Events.Find(id);
-            if (_event == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name", _event.EstablishmentID);
-            return View(_event);
+            ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name", @event.EstablishmentID);
+            return View(@event);
         }
 
         // POST: Events/Edit/5

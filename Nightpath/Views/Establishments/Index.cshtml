@@ -12,9 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Estab_Owner.ID)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Region.RegionName)
         </th>
         <th>
@@ -29,14 +26,14 @@
         <th>
             @Html.DisplayNameFor(model => model.NIF)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUserID)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estab_Owner.ID)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Region.RegionName)
         </td>
@@ -51,6 +48,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NIF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUserID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

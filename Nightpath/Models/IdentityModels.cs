@@ -20,8 +20,7 @@ namespace Nightpath.Models
 
         public string Name { get; set; }
         public string Address { get; set; }
-        public virtual ICollection<Client> Client { get; set; }
-        public virtual ICollection<Estab_Owner> Establishment { get; set; }
+
         
 
     }

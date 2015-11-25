@@ -18,7 +18,7 @@ namespace Nightpath.Controllers
         // GET: Points
         public ActionResult Index()
         {
-            var points = db.Points.Include(p => p.Client).Include(p => p.Establishment);
+            var points = db.Points.Include(p => p.Establishment);
             return View(points.ToList());
         }
 
@@ -40,7 +40,6 @@ namespace Nightpath.Controllers
         // GET: Points/Create
         public ActionResult Create()
         {
-            ViewBag.ClientID = new SelectList(db.Clients, "ID", "ID");
             ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name");
             return View();
         }
@@ -50,7 +49,7 @@ namespace Nightpath.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,EstablishmentID,ClientID,PointsNumber")] Points points)
+        public ActionResult Create([Bind(Include = "ID,EstablishmentID,ApplicationUserID,PointsNumber")] Points points)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +58,6 @@ namespace Nightpath.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClientID = new SelectList(db.Clients, "ID", "ID", points.ClientID);
             ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name", points.EstablishmentID);
             return View(points);
         }
@@ -76,7 +74,6 @@ namespace Nightpath.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ClientID = new SelectList(db.Clients, "ID", "ID", points.ClientID);
             ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name", points.EstablishmentID);
             return View(points);
         }
@@ -86,7 +83,7 @@ namespace Nightpath.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,EstablishmentID,ClientID,PointsNumber")] Points points)
+        public ActionResult Edit([Bind(Include = "ID,EstablishmentID,ApplicationUserID,PointsNumber")] Points points)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +91,6 @@ namespace Nightpath.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ClientID = new SelectList(db.Clients, "ID", "ID", points.ClientID);
             ViewBag.EstablishmentID = new SelectList(db.Establishments, "ID", "Name", points.EstablishmentID);
             return View(points);
         }

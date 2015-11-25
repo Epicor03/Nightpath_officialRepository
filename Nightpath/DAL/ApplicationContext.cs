@@ -28,9 +28,8 @@ namespace Nightpath.DAL
 
         public DbSet<Establishment> Establishments { get; set; }
 
-        public DbSet<Estab_Owner> Estab_Owners { get; set; }
-
-        public DbSet<Client> Clients { get; set; }
+       
+       
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

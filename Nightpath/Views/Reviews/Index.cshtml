@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Nightpath.Models.Points>
+﻿@model IEnumerable<Nightpath.Models.Review>
 
 @{
     ViewBag.Title = "Index";
@@ -12,13 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Establishment.Name)
+            @Html.DisplayNameFor(model => model.Event.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ApplicationUserID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PointsNumber)
         </th>
         <th></th>
     </tr>
@@ -26,13 +26,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Establishment.Name)
+            @Html.DisplayFor(modelItem => item.Event.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ApplicationUserID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PointsNumber)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

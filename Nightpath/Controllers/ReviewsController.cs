@@ -11,107 +11,112 @@ using Nightpath.Models;
 
 namespace Nightpath.Controllers
 {
-    public class Estab_OwnerController : Controller
+    public class ReviewsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Estab_Owner
+        // GET: Reviews
         public ActionResult Index()
         {
-            return View(db.Estab_Owners.ToList());
+            var reviews = db.Reviews.Include(r => r.Event);
+            return View(reviews.ToList());
         }
 
-        // GET: Estab_Owner/Details/5
+        // GET: Reviews/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Estab_Owner estab_Owner = db.Estab_Owners.Find(id);
-            if (estab_Owner == null)
+            Review review = db.Reviews.Find(id);
+            if (review == null)
             {
                 return HttpNotFound();
             }
-            return View(estab_Owner);
+            return View(review);
         }
 
-        // GET: Estab_Owner/Create
+        // GET: Reviews/Create
         public ActionResult Create()
         {
+            ViewBag.EventID = new SelectList(db.Events, "ID", "Title");
             return View();
         }
 
-        // POST: Estab_Owner/Create
+        // POST: Reviews/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID")] Estab_Owner estab_Owner)
+        public ActionResult Create([Bind(Include = "ID,Comment,EventID,ApplicationUserID")] Review review)
         {
             if (ModelState.IsValid)
             {
-                db.Estab_Owners.Add(estab_Owner);
+                db.Reviews.Add(review);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(estab_Owner);
+            ViewBag.EventID = new SelectList(db.Events, "ID", "Title", review.EventID);
+            return View(review);
         }
 
-        // GET: Estab_Owner/Edit/5
+        // GET: Reviews/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Estab_Owner estab_Owner = db.Estab_Owners.Find(id);
-            if (estab_Owner == null)
+            Review review = db.Reviews.Find(id);
+            if (review == null)
             {
                 return HttpNotFound();
             }
-            return View(estab_Owner);
+            ViewBag.EventID = new SelectList(db.Events, "ID", "Title", review.EventID);
+            return View(review);
         }
 
-        // POST: Estab_Owner/Edit/5
+        // POST: Reviews/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID")] Estab_Owner estab_Owner)
+        public ActionResult Edit([Bind(Include = "ID,Comment,EventID,ApplicationUserID")] Review review)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(estab_Owner).State = EntityState.Modified;
+                db.Entry(review).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(estab_Owner);
+            ViewBag.EventID = new SelectList(db.Events, "ID", "Title", review.EventID);
+            return View(review);
         }
 
-        // GET: Estab_Owner/Delete/5
+        // GET: Reviews/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Estab_Owner estab_Owner = db.Estab_Owners.Find(id);
-            if (estab_Owner == null)
+            Review review = db.Reviews.Find(id);
+            if (review == null)
             {
                 return HttpNotFound();
             }
-            return View(estab_Owner);
+            return View(review);
         }
 
-        // POST: Estab_Owner/Delete/5
+        // POST: Reviews/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Estab_Owner estab_Owner = db.Estab_Owners.Find(id);
-            db.Estab_Owners.Remove(estab_Owner);
+            Review review = db.Reviews.Find(id);
+            db.Reviews.Remove(review);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

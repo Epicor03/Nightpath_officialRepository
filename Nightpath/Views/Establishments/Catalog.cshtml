@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Nightpath.Models.Establishment>
+@{
+    ViewBag.Title = "Catalog";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <script>
+        function filter() {
+
+            var selectDistrict = document.getElementById("district");
+            var idDistrict = selectDistrict.options[selectDistrict.selectedIndex].value;
+            var selectRegion = document.getElementById("region");
+            var regionFilter = document.getElementById("region-filter");
+
+            for (var i = 0; i < regions.Length ; i++) {
+                if (idDistrict === selectRegion.value) {
+                    var opt = document.createElement("option");
+                    opt.value = selectRegion.value;
+                    opt.innerHTML = selectRegion.textContent;
+                    regionFilter.appendChild(opt);
+                }
+            }
+
+        }
+
+        function hide() {
+            var hideRegion = document.getElementById('region');
+            hideRegion.style.visibility = 'hidden';
+        }
+
+
+    </script>
+
+
+    <div class="form-horizontal">
+        <div class="container">
+            <div class="container col-lg-3 marginCatalog">
+
+                <div class=" row">
+                    <select id="district" onchange="filter()">
+                        <option value="">Selecionar Distrito</option>
+                        @{
+    for (int i = 0; i < @ViewBag.Districts.Length; i++)
+    {
+        <option value="@ViewBag.Districts[i].ID"> @ViewBag.Districts[i].DistrictName </option>
+    }
+                        }
+                    </select>
+
+                    <!--   <select id="region" onchange="hide()" >
+                                         <option value="">Selecionar Região</option>
+
+                                       @{
+                    for (int i = 0; i < @ViewBag.Regions.Length; i++)
+                    {
+                                 //<option value="@ViewBag.Regions[i].ID"> @ViewBag.Regions[i].RegionName </option>
+                     }
+                                         }
+
+                                     </select>
+
+
+
+                                     <select id="region-filter">
+
+                                     </select>
+
+                                      -->
+
+                </div>
+                <div class="marginCatalog">
+                    <h5>Rating</h5>
+                    <form>
+                        <input type="radio" name="Rating" value="1"> 1
+                        <input type="radio" name="Rating" value="2"> 2
+                        <input type="radio" name="Rating" value="3"> 3
+                        <input type="radio" name="Rating" value="4"> 4
+                        <input type="radio" name="Rating" value="5"> 5
+                    </form>
+                    <div class="row marginCatalog">
+                        <button type="button">Search</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class=" container col-lg-9">
+                <div class=" container col-lg-3">
+                    <h4>Titulo</h4>
+                    @Html.ActionLink("Ver mais", "CreateEvent", "Event")
+
+
+                </div>
+            </div>
+        
+            </div>
+
+        </div>
+    
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
