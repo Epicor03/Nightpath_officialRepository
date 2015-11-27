@@ -1,13 +1,13 @@
 ﻿@{
     ViewBag.Title = "Profile";
 }
-<div class="container col-lg-6">
-    <div class="row">
-        <div>
+<div class="container">
+    <div class="col-lg-6">
+        <div class="row">
             <img class="img-responsive profile-pic" src="http://www.aceshowbiz.com/images/photo/chuck_norris.jpg">
         </div>
         <div class="row">
-            <div class="container center-btn">
+            <div class="container left-btn">
                 <div class="spacing-form row">
                     Nome:
                     <label for=""></label>
@@ -36,112 +36,50 @@
                     E-mail:
                     <label for=""></label>
                 </div>
-                <div class="row right-btn">
+                <div class="row container right-btn">
                     <h4><li>@Html.ActionLink("Eliminar Conta", "", "")</li></h4>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container col-lg-6">
-        <div class="row">
+    <div class="col-lg-6">
+        <div>
             <h2 class="left-btn">Bares</h2>
             <h4 class="right-btn"><li>@Html.ActionLink("Adicionar Bar", "Create", "Establishments")</li></h4>
         </div>
         <div class="row profile-pic">
             <div class="col-lg-3">
-                <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/he/0/04/Guinness_logo.png">
+                <img class="img-responsive left-btn" src="https://upload.wikimedia.org/wikipedia/he/0/04/Guinness_logo.png">
             </div>
-            <div class="row col-lg-3">
+            <div class="row col-lg-9 right-btn">
                 <div class="row">
-                    Nome:
-                    <label for=""></label>
+                    <li>
+                        @Html.ActionLink("Ver Mais", "", "")
+                        |
+                        @Html.ActionLink("Editar", "", "")
+                        |
+                        @Html.ActionLink("Eliminar", "", "")
+                    </li>
                 </div>
-                <div class="row">
-                    Distrito:
-                    <label for=""></label>
+                <div class="left-btn row col-lg-9">
+
+                    <div class="row">
+                        Nome:
+                        <label for=""></label>
+                    </div>
+                    <div class="row">
+                        Distrito:
+                        <label for=""></label>
+                    </div>
+                    <div class="row">
+                        Rating:
+                        <label for=""></label>
+                    </div>
                 </div>
-                <div class="row">
-                    Rating:
-                    <label for=""></label>
-                </div>
-            </div>
-            <div class="row col-lg-6">
-                <div class="row">
-                    <h4><li>@Html.ActionLink("Ver Mais", "", "")</li></h4>
-                    |
-                    <h4><li>@Html.ActionLink("Editar", "", "")</li></h4>
-                    |
-                    <h4><li>@Html.ActionLink("Eliminar", "", "")</li>></h4>
-                </div>
-                <div class="row right-btn">
-                    Pontos:
-                    <label for=""></label>
-                </div>
-            </div>
-        </div>
-        <div class="row profile-pic">
-            <div class="col-lg-3">
-                <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/he/0/04/Guinness_logo.png">
-            </div>
-            <div class="row col-lg-3">
-                <div class="row">
-                    Nome:
-                    <label for=""></label>
-                </div>
-                <div class="row">
-                    Distrito:
-                    <label for=""></label>
-                </div>
-                <div class="row">
-                    Rating:
-                    <label for=""></label>
-                </div>
-            </div>
-            <div class="row col-lg-6">
-                <div class="row">
-                    <h4><li>@Html.ActionLink("Ver Mais", "", "")</li></h4>
-                    |
-                    <h4><li>@Html.ActionLink("Editar", "", "")</li></h4>
-                    |
-                    <h4><li>@Html.ActionLink("Eliminar", "", "")</li>></h4>
-                </div>
-                <div class="row right-btn">
-                    Pontos:
-                    <label for=""></label>
-                </div>
-            </div>
-        </div>
-        <div class="row profile-pic">
-            <div class="col-lg-3">
-                <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/he/0/04/Guinness_logo.png">
-            </div>
-            <div class="row col-lg-3">
-                <div class="row">
-                    Nome:
-                    <label for=""></label>
-                </div>
-                <div class="row">
-                    Distrito:
-                    <label for=""></label>
-                </div>
-                <div class="row">
-                    Rating:
-                    <label for=""></label>
-                </div>
-            </div>
-            <div class="row col-lg-6">
-                <div class="row">
-                    <h4><li>@Html.ActionLink("Ver Mais", "", "")</li></h4>
-                    |
-                    <h4><li>@Html.ActionLink("Editar", "", "")</li></h4>
-                    |
-                    <h4><li>@Html.ActionLink("Eliminar", "", "")</li>></h4>
-                </div>
-                <div class="row right-btn">
-                    Pontos:
-                    <label for=""></label>
-                </div>
+
             </div>
         </div>
 
     </div>
+
+</div>

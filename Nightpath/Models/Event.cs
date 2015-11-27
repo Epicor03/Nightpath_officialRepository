@@ -17,5 +17,7 @@ namespace Nightpath.Models
         public virtual Establishment Establishment { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }
+
+        public virtual ICollection<File> Files { get; set; }
     }
 }

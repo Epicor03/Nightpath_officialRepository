@@ -28,12 +28,13 @@ namespace Nightpath.DAL
 
         public DbSet<Establishment> Establishments { get; set; }
 
-       
-       
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        
     }
 
 
