@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Nightpath.Models.Establishment>
 @{
     ViewBag.Title = "Catalog";
+   
 }
 
 @using (Html.BeginForm())
@@ -32,6 +33,13 @@
         }
 
 
+        function filterEstablishment() {
+            var selectRegion = document.getElementById("region");
+            
+            var selectedValue = selectRegion.options[selects.selectedIndex].value;
+        }
+
+
     </script>
 
 
@@ -40,13 +48,13 @@
             <div class="container col-lg-3 marginCatalog">
 
                 <div class=" row">
-                    <select id="district" onchange="filter()">
-                        <option value="">Selecionar Distrito</option>
+                    <select id="region" onchange="filter()">
+                        <option value="">Selecionar Região</option>
                         @{
-    for (int i = 0; i < @ViewBag.Districts.Length; i++)
-    {
-        <option value="@ViewBag.Districts[i].ID"> @ViewBag.Districts[i].DistrictName </option>
-    }
+                            for (int i = 0; i < @ViewBag.Regions.Length; i++)
+                             {
+                         <option value="@ViewBag.Regions[i].ID"> @ViewBag.Regions[i].RegionName </option>
+                         }
                         }
                     </select>
 
@@ -81,15 +89,39 @@
                         <input type="radio" name="Rating" value="5"> 5
                     </form>
                     <div class="row marginCatalog">
-                        <button type="button">Search</button>
+                        <button type="button" onchange="filterEstablishment()">Search</button>
                     </div>
                 </div>
 
             </div>
             <div class=" container col-lg-9">
                 <div class=" container col-lg-3">
-                    <h4>Titulo</h4>
-                    @Html.ActionLink("Ver mais", "CreateEvent", "Event")
+                    <ul id="establishment-list">
+                      
+                        @{
+                            
+                            
+    for (int i = 0; i < @ViewBag.Establishments.Length; i++)
+    {
+
+       
+       
+       
+     
+                
+        <li value ="@ViewBag.Establishments[i].ID" onload="filterEstablishment()">
+             @ViewBag.Establishments[i].Name
+            <br/>
+                        Details(@ViewBag.Establishments[i].ID);
+            <p> @Html.ActionLink("Ver mais", "Details", new { id=item.ID })</p>
+        </li>
+                        
+    }
+                        }
+
+                    </ul>
+                    
+                
 
 
                 </div>

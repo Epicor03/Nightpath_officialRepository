@@ -14,18 +14,35 @@ namespace Nightpath.Controllers
 {
     public class EstablishmentsController : Controller
     {
+
+
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
+    
+           public ActionResult Catalog()
+           {
+               @ViewBag.Establishments = db.Establishments.ToArray();
+               @ViewBag.Regions = db.Regions.ToArray();
+            return View();
+        }
+
+        
+        
+        
         // GET: Establishments
         public ActionResult Index()
         {
+          
             var establishments = db.Establishments.Include(e => e.Region);
             return View(establishments.ToList());
         }
 
         // GET: Establishments/Details/5
         public ActionResult Details(int? id)
+       
         {
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
