@@ -200,6 +200,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-def.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\2.png" />
@@ -261,22 +262,15 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Event\CreateEvent.cshtml" />
-    <Content Include="Views\Establishment\readEstablishment.cshtml" />
     <Content Include="Views\Home\Points.cshtml" />
-    <Content Include="Views\Home\Catalog.cshtml" />
     <Content Include="Views\Home\BankTransfer.cshtml" />
     <Content Include="Views\Account\Feed.cshtml" />
-    <Content Include="Views\Home\Catalog.cshtml" />
-    <Content Include="Views\Home\BankTransfer.cshtml" />
     <Content Include="Views\Clients\Create.cshtml" />
     <Content Include="Views\Clients\Delete.cshtml" />
     <Content Include="Views\Clients\Details.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
-    <Content Include="Views\Home\Catalog.cshtml" />
-    <Content Include="Views\Home\BankTransfer.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
-    <Content Include="Views\Establishment\CreateEstablishment.cshtml" />
     <Content Include="Views\Districts\Create.cshtml" />
     <Content Include="Views\Districts\Delete.cshtml" />
     <Content Include="Views\Districts\Details.cshtml" />
@@ -292,7 +286,6 @@
     <Content Include="Views\Establishments\Details.cshtml" />
     <Content Include="Views\Establishments\Edit.cshtml" />
     <Content Include="Views\Establishments\Index.cshtml" />
-    <Content Include="Views\Events\Create.cshtml" />
     <Content Include="Views\Events\Delete.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
@@ -307,6 +300,7 @@
     <Content Include="Views\Points\Details.cshtml" />
     <Content Include="Views\Points\Edit.cshtml" />
     <Content Include="Views\Points\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511112242518_initial.resx">

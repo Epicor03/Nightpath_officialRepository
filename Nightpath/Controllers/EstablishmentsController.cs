@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Nightpath.DAL;
 using Nightpath.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Nightpath.Controllers
 {
@@ -54,6 +55,12 @@ namespace Nightpath.Controllers
         {
             if (ModelState.IsValid)
             {
+                //GET ID
+                string currentUserID = User.Identity.GetUserId();
+                
+                //Search in db for username with this id
+                ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserID);
+
                 db.Establishments.Add(establishment);
                 db.SaveChanges();
                 return RedirectToAction("Index");

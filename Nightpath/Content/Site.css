@@ -165,3 +165,16 @@ body {
     border-radius: 160px;
     border: 10px rgba(80,80,80,0.7); 
 }
+
+.gray-div{
+    background-color: rgba(80,80,80,0.7);
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+.white-div{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
