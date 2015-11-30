@@ -101,7 +101,7 @@ body {
 }
 
 .navbar-bottom-btn{
-    padding-top: 75px;
+    padding-top: 60px;
 }
 
 .button-navbar:hover {
@@ -113,13 +113,68 @@ body {
     background-color: #222;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 5px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
 }
+
+.btn-index {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight:bold;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btn-index1 {
+    background-color: rgba(255,0,0,0.0); 
+    color: rgba(0,0,0,0.7);; 
+    border: 2px solid rgba(0,0,0,0.7);
+}
+
+.btn-index1:hover {
+    background-color: #e7e7e7;
+    color: black;
+    font-weight:bold;
+    border: 2px solid #e7e7e7;
+}
+
+.title-index{
+    color: white;
+    font-family: perpetua;
+    font-size: 38px;
+}
+
+.logo-background{
+    background-color: rgba(80,80,80,0.7);
+    border-color: rgba(80,80,80,0.7);
+    border-radius: 160px;
+    border: 10px rgba(80,80,80,0.7); 
+}
+
+.gray-div{
+    background-color: rgba(80,80,80,0.7);
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+.white-div{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+

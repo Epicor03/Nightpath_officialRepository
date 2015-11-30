@@ -47,15 +47,23 @@
         <!-- position relative
            top -100px
             -->
+        <a href="~/Home/Index"><img class="img-responsive logo-background logo" src="/Content/images/logo2.png" style="position: absolute; top: 30px; left: 70px;"></a>
+        <!--End Logo Picture-->
         <div class="index-btn">
-            <h1>Where to...</h1>
-            <button type="button">@Html.ActionLink("Login", "Login", "Account")</button>
-            <button type="button">@Html.ActionLink("Sign In", "Register", "Account")</button>
-            </div> 
+            <!--<h1 class="title-index">Where to...</h1>-->
+            <ul> 
+                <li><a href="~/Account/Login">
+                    <input type="button" class="btn-index btn-index1" value="Login">
+                </a></li>       
+                <li><a href="~/Account/Register">
+                    <input type="button" class="btn-index btn-index1" value="Sign In">
+                </a></li>
+            </ul>
+            </div>
         </div>
-    
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-       
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
 </body>
 </html>

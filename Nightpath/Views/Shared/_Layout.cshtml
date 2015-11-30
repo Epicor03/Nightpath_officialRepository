@@ -9,36 +9,49 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><img class="img-responsive logo" src="/Content/images/logo_nightpath.jpg"></a>
-            </div>          
-            <div class="navbar-collapse collapse navbar-bottom-btn">
-                <ul class="nav navbar-nav">
 
-                    <li><a href="~/Home/Index">
-                    <input type="button" class="shadow-button button-navbar" value="Home">
-                    </a></li>
-                    <li><a href="~/Establishments/Catalog">
-                        <input type="button" class="shadow-button button-navbar" value="Catalog">
-                    </a></li>
-                    <li><a href="~/Account/Profile">
-                        <input type="button" class="shadow-button button-navbar" value="Profile">
-                    </a></li>
-                    <li><a href="~/Home/Points">
-                        <input type="button" class="shadow-button button-navbar" value="Points">
-                    </a></li>
-                    <li><a href="~/Home/About">
-                        <input type="button" class="shadow-button button-navbar" value="About">
-                    </a></li>
+    <div class="row" style="height:150px;">
+        <a href="~/Home/Index"><img class="img-responsive logo-background logo" src="/Content/images/logo2.png" style="position: fixed; top: 30px; left: 70px;"></a>
+        <div class="col-lg-2"></div>
+        <div class="navbar navbar-inverse col-lg-10" style="position: fixed; top: 50px; right: 5px;">
+            <div class=" container">
+                <div class="navbar-header">
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="~/Home/Index">
+                                <input type="button" class="shadow-button button-navbar" value="Home">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Catalog">
+                                <input type="button" class="shadow-button button-navbar" value="Catalog">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Account/Profile">
+                                <input type="button" class="shadow-button button-navbar" value="Profile">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Home/Points">
+                                <input type="button" class="shadow-button button-navbar" value="Points">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Home/About">
+                                <input type="button" class="shadow-button button-navbar" value="About">
+                            </a>
+                        </li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
 
-                </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="position: relative; overflow-y:scroll; height:600px;">
         @RenderBody()
         <hr />
         <footer>
